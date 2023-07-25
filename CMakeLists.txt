@@ -769,7 +769,7 @@ target_link_libraries (seastar
     GnuTLS::gnutls
     StdAtomic::atomic
     lksctp-tools::lksctp-tools
-    rt::rt
+    $<$<AND:$<BOOL:UNIX>,$<NOT:$<BOOL:APPLE>>>:rt::rt>
     yaml-cpp::yaml-cpp
     "$<BUILD_INTERFACE:Valgrind::valgrind>"
     Threads::Threads)
